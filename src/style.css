@@ -1,0 +1,55 @@
+.app{
+
+}
+.app__containter{
+	display: flex;
+	justify-content: center;
+	padding-top: 20px;
+}
+table  {
+	border-collapse:collapse
+  }
+  td, th {
+	border:1px solid #ddd;
+	padding:8px;
+}
+
+.app__search{
+	margin-right: 30px;
+}
+.input{
+	display: block;
+	margin-bottom: 20px;
+	line-height: 1.7;
+	font-size: 19px;
+	border: 2px solid #DADADA;
+	border-radius: 10px;
+	width: 350px;
+	
+}
+.button{
+	margin-bottom: 20px;
+	font-size: 19px;
+	border-radius: 5px;
+	border:none;
+	padding: 5px;
+	cursor: pointer;
+}
+::placeholder {
+	opacity: 0.4;
+}
+.search{
+}
+
+table, th, td {
+	border: 3px solid #fff;
+}
+
+th{
+	background-color: #3498DB;
+	color: #fff;
+}
+
+td{
+	background-color: #DADADA;
+}
