@@ -6,14 +6,6 @@
 	justify-content: center;
 	padding-top: 20px;
 }
-table  {
-	border-collapse:collapse
-  }
-  td, th {
-	border:1px solid #ddd;
-	padding:8px;
-}
-
 .app__search{
 	margin-right: 30px;
 }
@@ -43,6 +35,8 @@ table  {
 
 table, th, td {
 	border: 3px solid #fff;
+	padding:8px;
+	border-collapse:collapse
 }
 
 th{
@@ -52,4 +46,34 @@ th{
 
 td{
 	background-color: #DADADA;
+}
+
+.line{
+	cursor: pointer;
+}
+
+.modal{
+	height: 100vh;
+	width: 100vw;
+	background-color: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	left: 0;
+	top: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0%;
+	pointer-events: none;
+	transition: 0.3s;
+}
+
+.modal_actived{
+	opacity: 100%;
+	pointer-events: all;
+}
+
+.modal__container{
+	width: 700px;
+	height: 500px;
+	background-color: #fff;
 }

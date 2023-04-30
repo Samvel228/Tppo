@@ -12,7 +12,7 @@ const SearchForm = (props) => {
 			</div>
 			<button className='button'>Показать</button>
 			<div className='search__table'>
-				<TableForm data = {props.data}/>
+				<TableForm data = {props.data} setModalActive ={props.setModalActive}/>
 			</div>
 		</div>
 

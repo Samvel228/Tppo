@@ -1,4 +1,5 @@
 import React from 'react';
+import Line from './Line';
 
 const TableForm = (props) => {
 	console.log(props.data)
@@ -14,14 +15,9 @@ const TableForm = (props) => {
 					</tr>
 				</thead>
 				<tbody>
-					{props.data.map(item => {
+					{props.data.map((item, index) => {
 						return(
-						<tr>
-							<td>{item.fio}</td>
-							<td>{item.id}</td>
-							<td>{item.login}</td>
-							<td>{item.group}</td>
-						</tr>
+						<Line info = {item} key={index} setModalActive ={props.setModalActive}/>
 						)
 					})}
 				</tbody>
