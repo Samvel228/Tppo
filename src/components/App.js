@@ -1,16 +1,32 @@
 import AddFrom from "./AddFrom.js";
 import SearchForm  from "./SearchForm.js";
-import "normalize.css"
 import "../style.css"
 import Modal from "./Modal.js";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
-  const [modalActive, setModalActive] = useState(false)
+	const [modalActive, setModalActive] = useState(false)
+	const [sii, setSii] = useState([])
 
-  var sii = [{fio: "em", id: 12, login: "am", group: "21"}, 
-  {fio: "sm", id: 13, login: "azm", group: "212"},
-  {fio: "edm", id: 14, login: "axm", group: "211"}];
+	useEffect(() => {
+		fetch("http://localhost:80/site/proj.php", {
+			method: 'GET',
+			header: {'Content-Type': 'application/x-www-form-urlencoded'},
+		  })
+		  .then (response => response.json())
+		  .then (response => {
+			var arrObjects = []
+			for (let i = 0; i < response.length; i++) {
+				if (i === 0){
+					continue
+				}
+				arrObjects.push({fio: response[i][0], id: response[i][2], login: response[i][3], group: response[i][1]})
+			}
+			setSii(arrObjects);
+		  })
+	}, [])
+
+
 
   return (
     <div className="app">

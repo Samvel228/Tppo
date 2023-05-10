@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import TableForm from "./TableForm.js";
 
 const SearchForm = (props) => {
@@ -8,6 +8,10 @@ const SearchForm = (props) => {
 	const [searchLogin, setSearchLogin] = useState("")
 	const [searchGroup, setSearchGroup] = useState("")
 	
+	useEffect(() => {
+		setFilterData(props.data)
+	}, [props.data])
+
 	const filter = () => {
 		setFilterData(props.data.filter((item) => {return ((searchId === "" ? true : (String(item.id) === searchId))
 															&& (searchFio === "" ? true : (String(item.fio) === searchFio))
