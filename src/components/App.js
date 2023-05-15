@@ -2,13 +2,26 @@ import AddFrom from "./AddFrom.js";
 import SearchForm  from "./SearchForm.js";
 import "../style.css"
 import Modal from "./Modal.js";
+import LoginPage from "./LoginPage.js";
 import { useState, useEffect } from "react";
+import {
+	Routes,
+	Route,
+	useNavigate} from "react-router-dom";
 
 function App() {
 	const [modalActive, setModalActive] = useState(false)
 	const [sii, setSii] = useState([])
+	const [isLoged, setIsLoged] = useState(false)
+	const nav = useNavigate()
 
 	useEffect(() => {
+		if(isLoged === false){
+			nav("/login")
+		}
+		else {
+			nav("/home")
+		}
 		fetch("http://localhost:80/site/proj.php", {
 			method: 'GET',
 			header: {'Content-Type': 'application/x-www-form-urlencoded'},
@@ -24,19 +37,22 @@ function App() {
 			}
 			setSii(arrObjects);
 		  })
-	}, [])
-
-
+	}, [nav, isLoged])
 
   return (
     <div className="app">
-      <div className="app__containter">
-        <div className="app__search">
-          <SearchForm data = {sii} setModalActive = {setModalActive}/>
-        </div>
-          <AddFrom />
-      </div>
-      <Modal active = {modalActive} setActive = {setModalActive}/>
+		<Routes>
+			<Route path = "/home" element = {
+				<div className="app__containter">
+						<div className="app__search">
+						<SearchForm data = {sii} setModalActive = {setModalActive}/>
+						</div>
+						<AddFrom />
+						<Modal active = {modalActive} setActive = {setModalActive}/>
+				</div>
+			} />
+			<Route path="/login" element = {<LoginPage setIsLoged = {setIsLoged}/>}/>
+		</Routes>
     </div>
   );
 }

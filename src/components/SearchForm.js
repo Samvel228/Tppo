@@ -13,12 +13,27 @@ const SearchForm = (props) => {
 	}, [props.data])
 
 	const filter = () => {
-		setFilterData(props.data.filter((item) => {return ((searchId === "" ? true : (String(item.id) === searchId))
-															&& (searchFio === "" ? true : (String(item.fio) === searchFio))
-															&& (searchLogin === "" ? true : (String(item.login) === searchLogin))
-															&& (searchGroup === "" ? true : (String(item.group) === searchGroup)))
-		}))
-		console.log("asd", searchFio)
+		// setFilterData(props.data.filter((item) => {return ((searchId === "" ? true : (String(item.id) === searchId))
+		// 													&& (searchFio === "" ? true : (String(item.fio) === searchFio))
+		// 													&& (searchLogin === "" ? true : (String(item.login) === searchLogin))
+		// 													&& (searchGroup === "" ? true : (String(item.group) === searchGroup)))
+		// }))
+		// console.log("asd", searchFio)
+		const newPost = {
+			uidnumber: searchId,
+			uid: searchLogin,
+			cn: searchFio,
+			ou: searchGroup,
+		  }
+		fetch("http://localhost:80/site/filter.php", {
+			method: 'POST',
+			header: {'Content-Type': 'application/x-www-form-urlencoded'},
+			body: JSON.stringify(newPost)
+		  })
+		  .then (response => response.json())
+		  .then (response => {
+			console.log(response);
+		  })
 	}
 
 	return (

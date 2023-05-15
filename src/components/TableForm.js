@@ -2,7 +2,6 @@ import React from 'react';
 import Line from './Line';
 
 const TableForm = (props) => {
-	console.log(props.data)
 	return (
 		<div className='table'>
 			<table>
