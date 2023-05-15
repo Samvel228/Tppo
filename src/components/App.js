@@ -1,5 +1,6 @@
 import AddFrom from "./AddFrom.js";
 import SearchForm  from "./SearchForm.js";
+import "../normalize.css"
 import "../style.css"
 import Modal from "./Modal.js";
 import LoginPage from "./LoginPage.js";

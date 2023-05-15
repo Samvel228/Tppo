@@ -6,10 +6,15 @@ const LoginPage = (props) => {
 	const nav = useNavigate()
 	
 	return (
-		<div>
-			<input className='input' placeholder ="Введите login"/>
-			<input className='input' placeholder ="Введите пароль"/>
-			<button className='button' onClick={() => {props.setIsLoged(true); nav("/home")}}>Войти</button>
+		<div className='login'>
+			<div className='login__container'>
+				<div className='login__header'>Вход</div>
+				<input className='input' placeholder ="Введите логин"/>
+				<input className='input' placeholder ="Введите пароль"/>
+				<div className='login__button'>
+					<button className='button login__button' onClick={() => {props.setIsLoged(true); nav("/home")}}>Войти</button>
+				</div>
+			</div>
 		</div>
 	);
 };
