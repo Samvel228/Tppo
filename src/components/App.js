@@ -12,6 +12,7 @@ import {
 
 function App() {
 	const [modalActive, setModalActive] = useState(false)
+	const [studntData, setStudntData] = useState([[1],[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]])
 	const [sii, setSii] = useState([])
 	const [isLoged, setIsLoged] = useState(false)
 	const nav = useNavigate()
@@ -46,10 +47,10 @@ function App() {
 			<Route path = "/home" element = {
 				<div className="app__containter">
 						<div className="app__search">
-						<SearchForm data = {sii} setModalActive = {setModalActive}/>
+						<SearchForm data = {sii} setStudntData = {setStudntData} setModalActive = {setModalActive}/>
 						</div>
 						<AddFrom />
-						<Modal active = {modalActive} setActive = {setModalActive}/>
+						<Modal studntData = {studntData} setStudntData = {setStudntData} active = {modalActive} setActive = {setModalActive}/>
 				</div>
 			} />
 			<Route path="/login" element = {<LoginPage setIsLoged = {setIsLoged}/>}/>

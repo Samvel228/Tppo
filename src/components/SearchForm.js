@@ -32,6 +32,14 @@ const SearchForm = (props) => {
 		  })
 		  .then (response => response.json())
 		  .then (response => {
+			var arrObjects = []
+			for (let i = 0; i < response.length; i++) {
+				if (i === 0){
+					continue
+				}
+				arrObjects.push({fio: response[i][0], id: response[i][1], login: response[i][2], group: response[i][3]})
+			}
+			setFilterData(arrObjects)
 			console.log(response);
 		  })
 	}
@@ -46,7 +54,7 @@ const SearchForm = (props) => {
 			</div>
 			<button className='button' onClick={filter}>Показать</button>
 			<div className='search__table'>
-				<TableForm data = {filterData} setModalActive ={props.setModalActive}/>
+				<TableForm data = {filterData} setStudntData = {props.setStudntData} setModalActive ={props.setModalActive}/>
 			</div>
 		</div>
 

@@ -16,7 +16,7 @@ const TableForm = (props) => {
 				<tbody>
 					{props.data.map((item, index) => {
 						return(
-						<Line info = {item} key={index} setModalActive ={props.setModalActive}/>
+						<Line info = {item} key={index} setStudntData = {props.setStudntData} setModalActive ={props.setModalActive}/>
 						)
 					})}
 				</tbody>

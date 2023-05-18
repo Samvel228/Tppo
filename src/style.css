@@ -75,8 +75,10 @@ td{
 }
 
 .modal__container{
-	width: 700px;
-	height: 500px;
+	width: 600px;
+	height: 600px;
+	overflow-y: scroll;
+	padding: 50px;
 	background-color: #fff;
 }
 
